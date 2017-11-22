@@ -8,6 +8,13 @@ A Popup Controller Based On Vue
 $ npm install --save vue-ppp
 ```
 
+``` js
+import Vue from 'vue'; 
+import PPP from 'vue-ppp'; 
+
+Vue.use(PPP); 
+```
+
 # Usage 
 
 ## Create Modal 
