@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "A Popup Controller Based On Vue",
   "author": "1975845422@qq.com",
-  "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
