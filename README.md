@@ -22,16 +22,22 @@ Vue.use(PPP);
 ``` js
 import HelloPPP from 'a/b/c/d/HelloPPP.vue';
 
-var hello = this.$ppp.create({
-    type: 'modal', 
-    component: HelloPPP,
-    vbind: {
-        style: {
-            backgroundColor: '#FFF'
-        }
+    ...
+    created(){
+        var hello = this.$ppp.create({
+            type: 'modal', 
+            component: HelloPPP,
+            vbind: {
+                style: {
+                    backgroundColor: '#FFF'
+                }
+            }
+        });
+        hello.launch();
+    }, 
+    methods: {
+        ... 
     }
-});
-hello.launch(); 
 ```
 
 
