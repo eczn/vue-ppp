@@ -2,6 +2,10 @@
 
 A Popup Controller Based On Vue
 
+# Demo 
+
+![demo-01](doc/demo-01.gif)
+
 # Install 
 
 ``` bash 
