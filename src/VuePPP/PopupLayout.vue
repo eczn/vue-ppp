@@ -2,7 +2,6 @@
 	<div class="popup-layout" ref="popupRoot">
 		<div v-for="(item, idx) in list" :key="item.pid" 
 			class="popup-item" 
-			@touchmove="disableScroll"
 			:class="item.type + '-outter'">
 
 			<transition :name="item.transitionName || item.type">
@@ -46,8 +45,14 @@ export default {
 
 			return popupItem; 
 		},
-		disableScroll(e){
-			this.$refs.popupRoot
+
+		getLastActive(){
+			for (let i = this.list.length - 1; i >= 0; i --) {
+				let item = this.list[i];
+				if (item.active) return item;
+			}
+
+			return null; 
 		}
 	}
 }

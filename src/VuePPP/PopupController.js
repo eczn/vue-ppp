@@ -1,17 +1,22 @@
 // PopupController.js
-import Vue from 'vue'; 
+import PPP from './index'; 
 
-function getPPP(){
-	return Vue.prototype.$ppp; 
-}
-
+/**
+ * export default
+ */
 let PopupController = {}
+export default PopupController; 
+
+/**
+ * Counter For PopupItem Instance's Id
+ */
 let count = 0; 
 
 function PopupItem(option){
 	this.active = false; 
 	this.pid = option.type + '-' + count; 
 
+	// Default Value 
 	option.von = option.von || {}; 
 	option.vbind = option.vbind || {}; 
 
@@ -21,39 +26,52 @@ function PopupItem(option){
 	// Option Merged To This
 	Object.assign(this, option); 
 
-
+	// Default `close` Event Handler 
 	this.von.close = this.von.close || (() => this.close()); 
 }
 
+// <html> Root 
 var $html = document.getElementsByTagName('html')[0]; 
 
+/**
+ * Activate A PopupItem 
+ */
 PopupItem.prototype.launch = function(){
 	setTimeout(() => {
 		this.active = true;	
 
+		// Disable Background's Scrolling 
 		$html.setAttribute('class', 'banScroll');	 
 	});
 	return this;
 }
 
+/**
+ * Close A PopupItem 
+ */
 PopupItem.prototype.close = function(){
 	setTimeout(() => {
 		this.active = false;
 
-
-		if (getPPP().activeCount === 0) {
+		if (PPP.$ppp.activeCount === 0) {
+			// Enable Background's Scrolling 
 			$html.setAttribute('class', '');
 		}
 	});
 	return this; 
 }
 
+/**
+ * Alias Of `new PopupItem(option)`
+ */
 PopupController.create = function(option){
 	return new PopupItem(option); 
 }
 
+/**
+ * Register Property On `PopupItem.prototype`
+ */
 PopupController.__setPrototype = function(key, val){
 	PopupItem.prototype[key] = val; 
 }
 
-export default PopupController; 
