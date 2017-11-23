@@ -4,6 +4,8 @@ A Popup Controller Based On Vue
 
 # Demo 
 
+[DEMO](https://eczn.github.io/vue-ppp)
+
 # Install 
 
 ``` bash 
